@@ -53,7 +53,7 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get install -f -y
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-# install pyenv -
+# install pyenv
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
@@ -64,7 +64,7 @@ source ~/.bashrc
 pyenv install 3.10.0
 pyenv global 3.10.0
 
-# install poetry -
+# install poetry
 curl -sSL https://install.python-poetry.org | python3 -
 echo 'export PATH="/home/brendan/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
@@ -143,6 +143,13 @@ cd ~
 wget -P ~ "https://www.reaper.fm/files/6.x/reaper670_linux_x86_64.tar.xz"
 tar xf ~/reaper670_linux_x86_64.tar.xz
 sudo ~/reaper_linux_x86_64/install-reaper.sh  --install /opt --integrate-desktop --usr-local-bin-symlink
+
+# install vlc player
+sudo apt install -y vlc
+
+# install gp7
+wget "https://alt-downloads.guitar-pro.com/gp7/stable/guitar-pro-7-setup.exe"
+wine guitar-pro-7-setup.exe
 
 # install wine (interactive)
 sudo dpkg --add-architecture i386 && sudo apt-get update
