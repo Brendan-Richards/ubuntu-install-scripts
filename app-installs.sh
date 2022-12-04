@@ -147,15 +147,18 @@ sudo ~/reaper_linux_x86_64/install-reaper.sh  --install /opt --integrate-desktop
 # install vlc player
 sudo apt install -y vlc
 
-# install gp7
-wget "https://alt-downloads.guitar-pro.com/gp7/stable/guitar-pro-7-setup.exe"
-wine guitar-pro-7-setup.exe
+# install gimp
+sudo apt instal -y gimp
 
 # install wine (interactive)
 sudo dpkg --add-architecture i386 && sudo apt-get update
 sudo apt-get install wine32:i386 wine64 -y
 wineboot
 wine winecfg
+
+# install gp7
+wget "https://alt-downloads.guitar-pro.com/gp7/stable/guitar-pro-7-setup.exe"
+wine guitar-pro-7-setup.exe
 
 # install axe fx driver (interactive)
 # add-sudo apt-repository ppa:albaguirre/axe-fx2 && sudo apt -y update && sudo apt install -y axefx2-usb-firmware
