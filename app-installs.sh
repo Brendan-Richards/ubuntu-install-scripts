@@ -66,7 +66,7 @@ pyenv global 3.10.0
 
 # install poetry -
 curl -sSL https://install.python-poetry.org | python3 -
-echo 'export PATH="/root/.local/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/home/brendan/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
 # install vscode
@@ -130,7 +130,7 @@ sudo dpkg -i discord_debs
 
 # install spotify
 curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update && sudo apt-get install -y spotify-client
 
 # install keepass password safe
