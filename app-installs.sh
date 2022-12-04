@@ -129,7 +129,7 @@ sudo apt install -f -y
 sudo dpkg -i discord_debs
 
 # install spotify
-curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | apt-key add - 
+curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update && sudo apt-get install -y spotify-client
 
@@ -143,10 +143,6 @@ cd ~
 wget -P ~ "https://www.reaper.fm/files/6.x/reaper670_linux_x86_64.tar.xz"
 tar xf ~/reaper670_linux_x86_64.tar.xz
 sudo ~/reaper_linux_x86_64/install-reaper.sh  --install /opt --integrate-desktop --usr-local-bin-symlink
-
-# install dropbox (interactive)
-cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-~/.dropbox-dist/dropboxd
 
 # install wine (interactive)
 sudo dpkg --add-architecture i386 && sudo apt-get update
@@ -168,3 +164,7 @@ echo "alias axe-edit='wine \"C:\Program Files (x86)\Fractal Audio\Axe-Edit\Axe-E
 
 # install jack
 sudo apt-get install -y jackd2
+
+# install dropbox (interactive)
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+~/.dropbox-dist/dropboxd
