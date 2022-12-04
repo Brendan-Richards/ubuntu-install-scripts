@@ -2,11 +2,11 @@
 
 export TZ='America/Detroit'
 export DEBIAN_FRONTEND='noninteractive'
-ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-apt-get update 
-apt-get upgrade -y
-apt-get install -y \
+sudo apt-get update 
+sudo apt-get upgrade -y
+sudo apt-get install -y \
     wget \
     git \
     curl \
@@ -32,12 +32,12 @@ apt-get install -y \
 
 # install docker
 mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/sudo apt/keyrings/docker.gpg
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt-get update
-apt-get install -y \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/sudo apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | tee /etc/sudo apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install -y \
     docker-ce \
     docker-ce-cli \
     containerd.io \
@@ -47,9 +47,9 @@ apt-get install -y \
 mkdir ~/temp
 cd ~/temp
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-dpkg -i google-chrome-stable_current_amd64.deb
-apt-get install -f -y
-dpkg -i google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt-get install -f -y
+sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 # install pyenv -
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -72,17 +72,17 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > pa
 install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 rm -f packages.microsoft.gpg
-apt-get install apt-transport-https -y
-apt-get update -y
-apt-get install code -y
+sudo apt-get install apt-transport-https -y
+sudo apt-get update -y
+sudo apt-get install code -y
 
 # set vscode as the default text editor
 update-alternatives --set editor /usr/bin/code
 
 # install steam
-apt update -y
-apt upgrade -y
-apt install -y gcc-12-base:i386 i965-va-driver i965-va-driver:i386 intel-media-va-driver \
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install -y gcc-12-base:i386 i965-va-driver i965-va-driver:i386 intel-media-va-driver \
   intel-media-va-driver:i386 krb5-locales libapparmor1:i386 libasound2:i386 \
   libasound2-plugins:i386 libasyncns0:i386 libatomic1:i386 libblkid1:i386 \
   libbrotli1:i386 libbsd0:i386 libc6:i386 libcap2:i386 libcom-err2:i386 \
@@ -114,26 +114,26 @@ apt install -y gcc-12-base:i386 i965-va-driver i965-va-driver:i386 intel-media-v
   mesa-va-drivers mesa-va-drivers:i386 mesa-vulkan-drivers:i386 \
   steam-libs-amd64 steam-libs-i386:i386 va-driver-all va-driver-all:i386 \
   zlib1g:i386s
-apt-get install -y gdebi-core
+sudo apt-get install -y gdebi-core
 wget -P ~ http://media.steampowered.com/client/installer/steam.deb
 gdebi ~/steam.deb
 
 # install discord
 wget -O discord_deb "https://discord.com/api/download?platform=linux&format=deb"
-dpkg -i discord_deb
-apt update
-apt install -f -y
-dpkg -i discord_debs
+sudo dpkg -i discord_deb
+sudo apt update
+sudo apt install -f -y
+sudo dpkg -i discord_debs
 
 # install spotify
 curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
-apt-get update && apt-get install -y spotify-client
+sudo apt-get update && sudo apt-get install -y spotify-client
 
 # install keepass password safe
 add-apt-repository ppa:phoerious/keepassxc -y
-apt update
-apt install keepassxc -y
+sudo apt update
+sudo apt install keepassxc -y
 
 # install reaper
 cd ~
@@ -146,16 +146,16 @@ cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 ~/.dropbox-dist/dropboxd
 
 # install wine (interactive)
-dpkg --add-architecture i386 && apt-get update
-apt-get install wine32:i386 wine64 -y
+sudo dpkg --add-architecture i386 && sudo apt-get update
+sudo apt-get install wine32:i386 wine64 -y
 wineboot
 wine winecfg
 
 # install axe fx driver (interactive)
-# add-apt-repository ppa:albaguirre/axe-fx2 && apt -y update && apt install -y axefx2-usb-firmware
+# add-sudo apt-repository ppa:albaguirre/axe-fx2 && sudo apt -y update && sudo apt install -y axefx2-usb-firmware
 wget http://archive.axefx.fr/AxeFX%20II/Drivers/Axe-Fx_II_USB_Driver_Setup_Linux_106.zip
 unzip Axe-Fx_II_USB_Driver_Setup_Linux_106.zip
-apt install -y fxload
+sudo apt install -y fxload
 Axe-Fx_II_USB_Driver_Setup/axefx2setup.sh
 
 # install axe-edit with wine (interactive) -
@@ -164,4 +164,4 @@ wine Axe-Edit-Win-v3p14p6.exe
 echo "alias axe-edit='wine \"C:\Program Files (x86)\Fractal Audio\Axe-Edit\Axe-Edit.exe\"'" >> ~/.bashrc
 
 # install jack
-apt-get install -y jackd2
+sudo apt-get install -y jackd2
