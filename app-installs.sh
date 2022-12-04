@@ -2,7 +2,7 @@
 
 export TZ='America/Detroit'
 export DEBIAN_FRONTEND='noninteractive'
-sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && sudo echo $TZ > /etc/timezone
 
 sudo apt-get update 
 sudo apt-get upgrade -y
@@ -28,14 +28,16 @@ sudo apt-get install -y \
     liblzma-dev \
     nano \
     software-properties-common \
-    zenity
+    zenity \
+    libc++1 \
+    libgconf-2-4
 
 # install docker
 mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/sudo apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/sudo apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | tee /etc/sudo apt/sources.list.d/docker.list > /dev/null
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install -y \
     docker-ce \
@@ -69,9 +71,9 @@ source ~/.bashrc
 
 # install vscode
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo rm -f packages.microsoft.gpg
 sudo apt-get install apt-transport-https -y
 sudo apt-get update -y
 sudo apt-get install code -y
@@ -131,7 +133,7 @@ echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.
 sudo apt-get update && sudo apt-get install -y spotify-client
 
 # install keepass password safe
-add-apt-repository ppa:phoerious/keepassxc -y
+sudo add-apt-repository ppa:phoerious/keepassxc -y
 sudo apt update
 sudo apt install keepassxc -y
 
