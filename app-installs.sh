@@ -180,4 +180,4 @@ cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 ~/.dropbox-dist/dropboxd
 
 # set favorites bar
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'keepassxc_keepassxc.desktop', 'spotify_spotify.desktop', 'discord_discord.desktop', 'steam.desktop', 'code_code.desktop', 'cockos-reaper.desktop', 'qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'org.keepassxc.KeePassXC.desktop', 'spotify.desktop', 'discord.desktop', 'steam.desktop', 'code.desktop', 'cockos-reaper.desktop', 'org.rncbc.qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop', 'vlc.desktop', 'wine-Programs-Guitar Pro 7-Guitar Pro 7.desktop']"
