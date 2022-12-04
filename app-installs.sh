@@ -159,7 +159,7 @@ wine winecfg
 wget http://archive.axefx.fr/AxeFX%20II/Drivers/Axe-Fx_II_USB_Driver_Setup_Linux_106.zip
 unzip Axe-Fx_II_USB_Driver_Setup_Linux_106.zip
 sudo apt install -y fxload
-Axe-Fx_II_USB_Driver_Setup/axefx2setup.sh
+sudo Axe-Fx_II_USB_Driver_Setup/axefx2setup.sh
 
 # install axe-edit with wine (interactive) -
 wget "https://www.fractalaudio.com/downloads/axe-edit/Axe-Edit-Win-v3p14p6.exe"
