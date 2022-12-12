@@ -183,7 +183,7 @@ wine Axe-Edit-Win-v3p14p6.exe
 echo "alias axe-edit='wine \"C:\Program Files (x86)\Fractal Audio\Axe-Edit\Axe-Edit.exe\"'" >> ~/.bashrc
 
 # install jack
-sudo apt-get install -y pulseaudio-module-jacks
+sudo apt-get install -y pulseaudio-module-jacks qjackctl
 echo $'\n'
 echo "In QJackctl"
 echo "go to setup -> Misc, check 'Enable Jack D-Bus interface', and uncheck 'Replace Connections with Graph Button'"
