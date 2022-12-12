@@ -1,8 +1,8 @@
 #!/bin/bash
 
-export TZ='America/Detroit'
-export DEBIAN_FRONTEND='noninteractive'
-sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && sudo echo $TZ > /etc/timezone
+# export TZ='America/Detroit'
+# export DEBIAN_FRONTEND='noninteractive'
+# sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && sudo echo $TZ > /etc/timezone
 
 sudo apt-get update 
 sudo apt-get upgrade -y
@@ -30,7 +30,8 @@ sudo apt-get install -y \
     software-properties-common \
     zenity \
     libc++1 \
-    libgconf-2-4
+    libgconf-2-4 \
+    htop
 
 # install docker
 mkdir -p /etc/apt/keyrings
@@ -85,41 +86,6 @@ update-alternatives --set editor /usr/bin/code
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y steam
-# sudo apt install -y gcc-12-base:i386 i965-va-driver i965-va-driver:i386 intel-media-va-driver \
-#   intel-media-va-driver:i386 krb5-locales libapparmor1:i386 libasound2:i386 \
-#   libasound2-plugins:i386 libasyncns0:i386 libatomic1:i386 libblkid1:i386 \
-#   libbrotli1:i386 libbsd0:i386 libc6:i386 libcap2:i386 libcom-err2:i386 \
-#   libcrypt1:i386 libdb5.3:i386 libdbus-1-3:i386 libdrm-amdgpu1:i386 \
-#   libdrm-intel1:i386 libdrm-nouveau2:i386 libdrm-radeon1:i386 libdrm2:i386 \
-#   libedit2:i386 libegl-mesa0:i386 libegl1:i386 libelf1:i386 libexpat1:i386 \
-#   libffi8:i386 libflac8:i386 libfontconfig1:i386 libfreetype6:i386 \
-#   libgbm1:i386 libgcc-s1:i386 libgcrypt20:i386 libgl1:i386 \
-#   libgl1-mesa-dri:i386 libglapi-mesa:i386 libglib2.0-0:i386 libglvnd0:i386 \
-#   libglx-mesa0:i386 libglx0:i386 libgmp10:i386 libgnutls30:i386 \
-#   libgpg-error-l10n libgpg-error0:i386 libgssapi-krb5-2:i386 libhogweed6:i386 \
-#   libicu70:i386 libidn2-0:i386 libigdgmm12 libigdgmm12:i386 \
-#   libjack-jackd2-0:i386 libk5crypto3:i386 libkeyutils1:i386 libkrb5-3:i386 \
-#   libkrb5support0:i386 libllvm13:i386 liblz4-1:i386 liblzma5:i386 libmd0:i386 \
-#   libmount1:i386 libnettle8:i386 libnm0:i386 libnsl2:i386 libnss-nis:i386 \
-#   libnss-nisplus:i386 libogg0:i386 libopus0:i386 libp11-kit0:i386 \
-#   libpciaccess0:i386 libpcre2-8-0:i386 libpcre3:i386 libpng16-16:i386 \
-#   libpulse0:i386 libsamplerate0:i386 libselinux1:i386 libsensors5:i386 \
-#   libsndfile1:i386 libssl3:i386 libstdc++6:i386 libsystemd0:i386 \
-#   libtasn1-6:i386 libtinfo6:i386 libtirpc3:i386 libudev1:i386 \
-#   libunistring2:i386 libuuid1:i386 libva-drm2 libva-drm2:i386 libva-glx2 \
-#   libva-glx2:i386 libva-x11-2 libva-x11-2:i386 libva2 libva2:i386 \
-#   libvorbis0a:i386 libvorbisenc2:i386 libvulkan1:i386 libwayland-client0:i386 \
-#   libwayland-server0:i386 libx11-6:i386 libx11-xcb1:i386 libxau6:i386 \
-#   libxcb-dri2-0:i386 libxcb-dri3-0:i386 libxcb-glx0:i386 libxcb-present0:i386 \
-#   libxcb-randr0:i386 libxcb-shm0:i386 libxcb-sync1:i386 libxcb-xfixes0:i386 \
-#   libxcb1:i386 libxdmcp6:i386 libxext6:i386 libxfixes3:i386 libxinerama1:i386 \
-#   libxml2:i386 libxshmfence1:i386 libxss1:i386 libxxf86vm1:i386 libzstd1:i386 \
-#   mesa-va-drivers mesa-va-drivers:i386 mesa-vulkan-drivers:i386 \
-#   steam-libs-amd64 steam-libs-i386:i386 va-driver-all va-driver-all:i386 \
-#   zlib1g:i386s
-# sudo apt-get install -y gdebi-core
-# wget -P ~ http://media.steampowered.com/client/installer/steam.deb
-# gdebi ~/steam.deb
 
 # install discord
 wget -O discord_deb "https://discord.com/api/download?platform=linux&format=deb"
@@ -148,13 +114,26 @@ sudo ~/reaper_linux_x86_64/install-reaper.sh  --install /opt --integrate-desktop
 sudo apt install -y vlc
 
 # install gimp
-sudo apt instal -y gimp
+sudo apt install -y gimp
 
 # install wine (interactive)
 sudo dpkg --add-architecture i386 && sudo apt-get update
 sudo apt-get install wine32:i386 wine64 -y
 wineboot
 wine winecfg
+
+# install winetricks
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y winetricks
+
+# install lutris
+sudo apt install -y lutris
+
+# install league of legends
+# wget https://m-reimer.de/wine-lol/debian/wine-lol-glibc_2.33-1_i386.deb
+# wget https://m-reimer.de/wine-lol/debian/wine-lol_5.6-1_i386.deb
+# sudo dpkg -i wine-lol-glibc_2.33-1_i386.deb
+# sudo dpkg -i wine-lol_5.6-1_i386.deb
 
 # install gp7
 wget "https://alt-downloads.guitar-pro.com/gp7/stable/guitar-pro-7-setup.exe"
@@ -173,11 +152,18 @@ wine Axe-Edit-Win-v3p14p6.exe
 echo "alias axe-edit='wine \"C:\Program Files (x86)\Fractal Audio\Axe-Edit\Axe-Edit.exe\"'" >> ~/.bashrc
 
 # install jack
-sudo apt-get install -y jackd2
+sudo apt-get install -y pulseaudio-module-jacks
+# additional instructions:
+#   in QJackctl, 
+#      1) go to setup -> Misc, check 'Enable Jack D-Bus interface', and uncheck 'Replace Connections with Graph Button'
+#      2) then go to setup -> Options, in "Execute script after Startup put: 'pacmd load-module module-jack-source channels=2; pacmd load-module module-jack-sink channels=2;'"
+#      3) in setup -> Settings -> Advanced, select focusrite 2i2 for input device and output device
+#      4) set up connections in the main connect menu like the image in this repo
+#      5) to use jack you have to set the jack sinc to be the input and output audio device in ubuntu sound settings
 
 # install dropbox (interactive)
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 ~/.dropbox-dist/dropboxd
 
 # set favorites bar
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'org.keepassxc.KeePassXC.desktop', 'spotify.desktop', 'discord.desktop', 'steam.desktop', 'code.desktop', 'cockos-reaper.desktop', 'org.rncbc.qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop', 'vlc.desktop', 'wine-Programs-Guitar Pro 7-Guitar Pro 7.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'org.keepassxc.KeePassXC.desktop', 'spotify.desktop', 'discord.desktop', 'steam.desktop', 'code.desktop', 'cockos-reaper.desktop', 'org.rncbc.qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop', 'vlc.desktop', 'wine-Programs-Guitar Pro 7-Guitar Pro 7.desktop', 'net.lutris.Lutris.desktop']"
