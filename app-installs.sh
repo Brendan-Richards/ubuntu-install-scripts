@@ -31,7 +31,8 @@ sudo apt-get install -y \
     zenity \
     libc++1 \
     libgconf-2-4 \
-    htop
+    htop \
+    unzip
 
 # install docker
 mkdir -p /etc/apt/keyrings
@@ -126,6 +127,36 @@ wine winecfg
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y winetricks
 
+# install linvst
+wget https://github.com/osxmidi/LinVst/releases/download/4.78/LinVst-4.78.zip
+unzip LinVst-4.78.zip
+sudo cp LinVst-4.78/linvstconvert /usr/bin
+sudo cp LinVst-4.78/LinVst-4.78-drag-drop/lin* /usr/bin
+
+# install toontrack product manager
+echo "go to this link and download the windows verison: https://www.toontrack.com/product-manager/"
+while [ true ] ; do
+    read -t 10 -n 1
+    if [ $? = 0 ] ; then
+        break ;
+    else
+        echo "waiting for keypress"
+    fi
+done
+unzip ~/Downloads/Toontrack_Product_Manager_WIN.zip
+wine Toontrack_Product_Manager_WIN/Windows\ 10/Toontrack\ Product\ Manager\ Installer.exe
+echo "Install product manager, then install superior drummer. Press any key when done..."
+while [ true ] ; do
+    read -t 10 -n 1
+    if [ $? = 0 ] ; then
+        break ;
+    else
+        echo "waiting for keypress"
+    fi
+done
+echo "Convert toontrack vsts, then exit linvstconvert"
+linvstconvert
+
 # install lutris
 sudo apt install -y lutris
 
@@ -153,13 +184,51 @@ echo "alias axe-edit='wine \"C:\Program Files (x86)\Fractal Audio\Axe-Edit\Axe-E
 
 # install jack
 sudo apt-get install -y pulseaudio-module-jacks
-# additional instructions:
-#   in QJackctl, 
-#      1) go to setup -> Misc, check 'Enable Jack D-Bus interface', and uncheck 'Replace Connections with Graph Button'
-#      2) then go to setup -> Options, in "Execute script after Startup put: 'pacmd load-module module-jack-source channels=2; pacmd load-module module-jack-sink channels=2;'"
-#      3) in setup -> Settings -> Advanced, select focusrite 2i2 for input device and output device
-#      4) set up connections in the main connect menu like the image in this repo
-#      5) to use jack you have to set the jack sinc to be the input and output audio device in ubuntu sound settings
+echo $'\n'
+echo "In QJackctl"
+echo "go to setup -> Misc, check 'Enable Jack D-Bus interface', and uncheck 'Replace Connections with Graph Button'"
+echo "press any key when done..."
+while [ true ] ; do
+    read -t 10 -n 1
+    if [ $? = 0 ] ; then
+        break ;
+    else
+        echo "waiting for keypress"
+    fi
+done
+echo $'\n'
+echo "go to setup -> Options, in Execute script after Startup put: 'pacmd load-module module-jack-source channels=2; pacmd load-module module-jack-sink channels=2;'"
+echo "press any key when done..."
+while [ true ] ; do
+    read -t 10 -n 1
+    if [ $? = 0 ] ; then
+        break ;
+    else
+        echo "waiting for keypress"
+    fi
+done
+echo $'\n'
+echo "In setup -> Settings -> Advanced, select focusrite 2i2 for input device and output device"
+echo "press any key when done..."
+while [ true ] ; do
+    read -t 10 -n 1
+    if [ $? = 0 ] ; then
+        break ;
+    else
+        echo "waiting for keypress"
+    fi
+done
+echo $'\n'
+echo "Set up connections in the main connect menu like the image in the install script repo"
+echo "press any key when done..."
+while [ true ] ; do
+    read -t 10 -n 1
+    if [ $? = 0 ] ; then
+        break ;
+    else
+        echo "waiting for keypress"
+    fi
+done
 
 # install dropbox (interactive)
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
