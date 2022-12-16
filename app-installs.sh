@@ -143,9 +143,10 @@ while [ true ] ; do
         echo "waiting for keypress"
     fi
 done
-unzip ~/Downloads/Toontrack_Product_Manager_WIN.zip
-wine Toontrack_Product_Manager_WIN/Windows\ 10/Toontrack\ Product\ Manager\ Installer.exe
+unzip /home/brendan/Downloads/Toontrack_Product_Manager_WIN.zip && wine Toontrack_Product_Manager_WIN/Windows\ 10/Toontrack\ Product\ Manager\ Installer.exe
+wine /home/brendan/.wine/drive_c/Program\ Files\ \(x86\)/Toontrack/Toontrack\ Product\ Manager.exe
 echo "Install product manager, then install superior drummer. Press any key when done..."
+echo "command is: 'wine /home/brendan/.wine/drive_c/Program\ Files\ \(x86\)/Toontrack/Toontrack\ Product\ Manager.exe'"
 while [ true ] ; do
     read -t 10 -n 1
     if [ $? = 0 ] ; then
@@ -183,7 +184,7 @@ wine Axe-Edit-Win-v3p14p6.exe
 echo "alias axe-edit='wine \"C:\Program Files (x86)\Fractal Audio\Axe-Edit\Axe-Edit.exe\"'" >> ~/.bashrc
 
 # install jack
-sudo apt-get install -y pulseaudio-module-jacks qjackctl
+sudo apt-get install -y qjackctl pulseaudio-module-jack
 echo $'\n'
 echo "In QJackctl"
 echo "go to setup -> Misc, check 'Enable Jack D-Bus interface', and uncheck 'Replace Connections with Graph Button'"
@@ -232,7 +233,7 @@ done
 
 # install dropbox (interactive)
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-~/.dropbox-dist/dropboxd
+/home/brendan/.dropbox-dist/dropboxd
 
 # set favorites bar
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'org.keepassxc.KeePassXC.desktop', 'spotify.desktop', 'discord.desktop', 'steam.desktop', 'code.desktop', 'cockos-reaper.desktop', 'org.rncbc.qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop', 'vlc.desktop', 'wine-Programs-Guitar Pro 7-Guitar Pro 7.desktop', 'net.lutris.Lutris.desktop']"
