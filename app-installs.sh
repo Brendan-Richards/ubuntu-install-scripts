@@ -156,6 +156,8 @@ while [ true ] ; do
     fi
 done
 echo "Convert toontrack vsts, then exit linvstconvert"
+echo "for top option: navigate to the main linvst file from the download"
+echo "for the bottom option navigate to the vst folder in your ~/.wine/c_drive folders"
 linvstconvert
 
 # install lutris
@@ -188,38 +190,8 @@ sudo apt-get install -y qjackctl pulseaudio-module-jack
 echo $'\n'
 echo "In QJackctl"
 echo "go to setup -> Misc, check 'Enable Jack D-Bus interface', and uncheck 'Replace Connections with Graph Button'"
-echo "press any key when done..."
-while [ true ] ; do
-    read -t 10 -n 1
-    if [ $? = 0 ] ; then
-        break ;
-    else
-        echo "waiting for keypress"
-    fi
-done
-echo $'\n'
 echo "go to setup -> Options, in Execute script after Startup put: 'pacmd load-module module-jack-source channels=2; pacmd load-module module-jack-sink channels=2;'"
-echo "press any key when done..."
-while [ true ] ; do
-    read -t 10 -n 1
-    if [ $? = 0 ] ; then
-        break ;
-    else
-        echo "waiting for keypress"
-    fi
-done
-echo $'\n'
 echo "In setup -> Settings -> Advanced, select focusrite 2i2 for input device and output device"
-echo "press any key when done..."
-while [ true ] ; do
-    read -t 10 -n 1
-    if [ $? = 0 ] ; then
-        break ;
-    else
-        echo "waiting for keypress"
-    fi
-done
-echo $'\n'
 echo "Set up connections in the main connect menu like the image in the install script repo"
 echo "press any key when done..."
 while [ true ] ; do
@@ -231,9 +203,9 @@ while [ true ] ; do
     fi
 done
 
+# set favorites bar
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'org.keepassxc.KeePassXC.desktop', 'spotify.desktop', 'discord.desktop', 'steam.desktop', 'code.desktop', 'cockos-reaper.desktop', 'org.rncbc.qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop', 'vlc.desktop', 'wine-Programs-Guitar Pro 7-Guitar Pro 7.desktop', 'net.lutris.Lutris.desktop']"
+
 # install dropbox (interactive)
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 /home/brendan/.dropbox-dist/dropboxd
-
-# set favorites bar
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'org.keepassxc.KeePassXC.desktop', 'spotify.desktop', 'discord.desktop', 'steam.desktop', 'code.desktop', 'cockos-reaper.desktop', 'org.rncbc.qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop', 'vlc.desktop', 'wine-Programs-Guitar Pro 7-Guitar Pro 7.desktop', 'net.lutris.Lutris.desktop']"
