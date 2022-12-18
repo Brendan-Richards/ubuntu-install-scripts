@@ -136,7 +136,7 @@ sudo cp LinVst-4.78/LinVst-4.78-drag-drop/lin* /usr/bin
 # install toontrack product manager
 echo "go to this link and download the windows verison: https://www.toontrack.com/product-manager/"
 while [ true ] ; do
-    read -t 10 -n 1
+    read -t 100 -n 1
     if [ $? = 0 ] ; then
         break ;
     else
@@ -148,7 +148,7 @@ wine /home/brendan/.wine/drive_c/Program\ Files\ \(x86\)/Toontrack/Toontrack\ Pr
 echo "Install product manager, then install superior drummer. Press any key when done..."
 echo "command is: 'wine /home/brendan/.wine/drive_c/Program\ Files\ \(x86\)/Toontrack/Toontrack\ Product\ Manager.exe'"
 while [ true ] ; do
-    read -t 10 -n 1
+    read -t 100 -n 1
     if [ $? = 0 ] ; then
         break ;
     else
@@ -195,7 +195,7 @@ echo "In setup -> Settings -> Advanced, select focusrite 2i2 for input device an
 echo "Set up connections in the main connect menu like the image in the install script repo"
 echo "press any key when done..."
 while [ true ] ; do
-    read -t 10 -n 1
+    read -t 100 -n 1
     if [ $? = 0 ] ; then
         break ;
     else
