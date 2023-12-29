@@ -219,3 +219,9 @@ gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'sna
 # install dropbox (interactive)
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 /home/brendan/.dropbox-dist/dropboxd
+
+# install android studio (interactive)
+wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.26/android-studio-2023.1.1.26-linux.tar.gz
+tar -xzvf android-studio-2023.1.1.26-linux.tar.gz
+cd android-studio/bin
+./studio.sh
