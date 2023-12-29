@@ -213,15 +213,21 @@ while [ true ] ; do
     fi
 done
 
+# install android studio (interactive)
+wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.26/android-studio-2023.1.1.26-linux.tar.gz
+tar -xzvf android-studio-2023.1.1.26-linux.tar.gz
+echo "[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=true
+Name=Android Studio
+Comment=Launches Android Studio
+Icon=/home/brendan/android-studio/bin/studio.png
+Exec=/home/brendan/android-studio/bin/studio.sh" | sudo tee /usr/share/applications/android-studio.desktop
+
 # set favorites bar
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'org.keepassxc.KeePassXC.desktop', 'spotify.desktop', 'discord.desktop', 'steam.desktop', 'code.desktop', 'cockos-reaper.desktop', 'org.rncbc.qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop', 'vlc.desktop', 'wine-Programs-Guitar Pro 7-Guitar Pro 7.desktop', 'net.lutris.Lutris.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Terminal.desktop', 'google-chrome.desktop', 'org.keepassxc.KeePassXC.desktop', 'spotify.desktop', 'discord.desktop', 'steam.desktop', 'code.desktop', 'cockos-reaper.desktop', 'org.rncbc.qjackctl.desktop', 'wine-Programs-Fractal Audio-Axe-Edit.desktop', 'vlc.desktop', 'wine-Programs-Guitar Pro 7-Guitar Pro 7.desktop', 'net.lutris.Lutris.desktop', 'android-studio.desktop']"
 
 # install dropbox (interactive)
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 /home/brendan/.dropbox-dist/dropboxd
-
-# install android studio (interactive)
-wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2023.1.1.26/android-studio-2023.1.1.26-linux.tar.gz
-tar -xzvf android-studio-2023.1.1.26-linux.tar.gz
-cd android-studio/bin
-./studio.sh
