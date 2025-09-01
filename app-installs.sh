@@ -140,7 +140,7 @@ done
 # install yahbridge
 wget https://github.com/robbert-vdh/yabridge/releases/download/5.1.1/yabridge-5.1.1.tar.gz
 tar -C ~/.local/share -xavf yabridge-5.1.1.tar.gz
-echo "export PATH='$PATH:$HOME/.local/share/yabridge'" >> ~/.bashrc
+echo "export PATH='$PATH:$HOME/.local/share/yabridge'" >> ~/.bashrc && source ~/.bashrc
 yabridgectl add ~/.wine/drive_c/Program\ Files/VstPlugins
 yabridgectl sync
 
