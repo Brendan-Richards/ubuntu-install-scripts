@@ -104,6 +104,10 @@ sudo apt install -y vlc
 # install gimp
 sudo apt install -y gimp
 
+# install rust
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+. "$HOME/.cargo/env"
+
 # install wine (interactive)
 sudo dpkg --add-architecture i386 && sudo apt-get update
 sudo apt-get install wine32:i386 wine64 -y
