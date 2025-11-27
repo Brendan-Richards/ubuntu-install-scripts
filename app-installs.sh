@@ -108,6 +108,16 @@ sudo apt install -y gimp
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 . "$HOME/.cargo/env"
 
+# setup xremap with colmak-dh layout
+cargo install xremap --features x11
+mkdir -p $HOME/.config/xremap
+cp colmak-dh.yaml $HOME/.config/xremap/config.yaml
+cp xremap.service $HOME/.config/systemd/user/xremap.service
+sudo usermod -aG input $USER
+systemctl --user daemon-reload
+systemctl --user enable xremap.service
+systemctl --user start xremap.service
+
 # install wine (interactive)
 sudo dpkg --add-architecture i386 && sudo apt-get update
 sudo apt-get install wine32:i386 wine64 -y

@@ -1,0 +1,10 @@
+[Unit]
+Description=Xremap
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/brendan/.cargo/bin/xremap --watch /home/brendan/.config/xremap/config.yaml
+
+[Install]
+WantedBy=default.target

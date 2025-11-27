@@ -1,0 +1,28 @@
+modmap:
+  - name: "Colemak-DH custom remaps"
+    remap:
+      # ----- Left Hand -----
+      e: f
+      r: p
+      t: b
+      s: r
+      d: s
+      f: t
+      v: d
+      b: v
+
+      # ----- Right Hand (Colemak-DH) -----
+      y: j
+      u: l
+      i: u
+      o: y
+      p: semicolon
+
+      h: m
+      j: n
+      k: e
+      l: i
+      semicolon: o
+
+      n: k
+      m: h
