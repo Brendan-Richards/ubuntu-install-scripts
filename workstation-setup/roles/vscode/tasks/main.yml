@@ -1,29 +1,35 @@
 ---
-- name: Add Microsoft GPG key
+- name: "Add Microsoft GPG key"
   get_url:
     url: https://packages.microsoft.com/keys/microsoft.asc
     dest: /etc/apt/keyrings/packages.microsoft.gpg
+  become: yes
 
-- name: Add VSCode repository
+- name: "Add VSCode repository"
   template:
     src: vscode.list.j2
     dest: /etc/apt/sources.list.d/vscode.list
+  become: yes
 
-- name: Install apt-transport-https
+- name: "Install apt-transport-https"
   apt:
     name: apt-transport-https
     state: present
+  become: yes
 
-- name: Update apt cache
+- name: "Update apt cache"
   apt:
     update_cache: yes
+  become: yes
 
-- name: Install VSCode
+- name: "Install VSCode"
   apt:
     name: code
     state: present
+  become: yes
 
-- name: Set VSCode as default editor
+- name: "Set VSCode as default editor"
   alternatives:
     name: editor
     path: /usr/bin/code
+  become: yes

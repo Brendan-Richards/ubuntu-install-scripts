@@ -1,9 +1,0 @@
----
-- name: Download Discord .deb
-  get_url:
-    url: "https://discord.com/api/download?platform=linux&format=deb"
-    dest: "{{ user_home }}/discord.deb"
-
-- name: Install Discord
-  apt:
-    deb: "{{ user_home }}/discord.deb"

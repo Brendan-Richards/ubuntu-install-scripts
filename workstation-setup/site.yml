@@ -1,5 +1,5 @@
 ---
-- name: Workstation Setup
+- name: "Workstation Setup"
   hosts: localhost
   become: yes
   vars:

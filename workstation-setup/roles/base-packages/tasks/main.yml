@@ -1,14 +1,16 @@
 ---
-- name: Update apt cache
+- name: "Update apt cache"
   apt:
     update_cache: yes
+  become: yes
 
-- name: Upgrade system
+- name: "Upgrade system"
   apt:
     upgrade: dist
     yes: true
+  become: yes
 
-- name: Install base packages
+- name: "Install base packages"
   apt:
     name:
       - wget
@@ -38,3 +40,4 @@
       - htop
       - unzip
     state: present
+  become: yes

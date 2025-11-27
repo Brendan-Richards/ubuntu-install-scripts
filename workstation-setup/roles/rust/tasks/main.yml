@@ -1,10 +1,10 @@
 ---
-- name: Install Rust
+- name: "Install Rust"
   shell: curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
   args:
     executable: /bin/bash
   become: false
 
-- name: Source cargo environment
-  shell: . "{{ user_home }}/.cargo/env"
+- name: "Source cargo environment"
+  shell: . "{{ ansible_env.HOME }}/.cargo/env"
   become: false

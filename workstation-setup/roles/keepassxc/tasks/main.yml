@@ -1,10 +1,12 @@
 ---
-- name: Add KeePassXC PPA
+- name: "Add KeePassXC PPA"
   apt_repository:
     repo: ppa:phoerious/keepassxc
     state: present
+  become: yes
 
-- name: Install KeePassXC
+- name: "Install KeePassXC"
   apt:
     name: keepassxc
     state: present
+  become: yes

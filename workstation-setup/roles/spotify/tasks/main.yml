@@ -1,19 +1,23 @@
 ---
-- name: Add Spotify GPG key
+- name: "Add Spotify GPG key"
   apt_key:
     url: https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg
     state: present
+  become: yes
 
-- name: Add Spotify repo
+- name: "Add Spotify repo"
   copy:
     dest: /etc/apt/sources.list.d/spotify.list
     content: "deb http://repository.spotify.com stable non-free"
+  become: yes
 
-- name: Update apt cache
+- name: "Update apt cache"
   apt:
     update_cache: yes
+  become: yes
 
-- name: Install Spotify
+- name: "Install Spotify"
   apt:
     name: spotify-client
     state: present
+  become: yes

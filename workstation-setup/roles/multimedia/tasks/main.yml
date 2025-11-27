@@ -1,7 +1,0 @@
----
-- name: Install VLC and GIMP
-  apt:
-    name:
-      - vlc
-      - gimp
-    state: present
