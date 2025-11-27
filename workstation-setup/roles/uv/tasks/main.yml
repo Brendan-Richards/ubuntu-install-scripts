@@ -1,0 +1,7 @@
+
+---
+# uv installation
+- name: Placeholder task
+  debug:
+    msg: "uv installation goes here"
+

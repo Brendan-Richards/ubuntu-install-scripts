@@ -1,0 +1,7 @@
+
+---
+# KeePassXC
+- name: Placeholder task
+  debug:
+    msg: "KeePassXC installation"
+

@@ -1,0 +1,7 @@
+
+---
+# GNOME favorites
+- name: Placeholder task
+  debug:
+    msg: "GNOME favorites setup"
+

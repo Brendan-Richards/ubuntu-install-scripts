@@ -1,0 +1,7 @@
+
+---
+# VLC + GIMP
+- name: Placeholder task
+  debug:
+    msg: "VLC and GIMP installation"
+

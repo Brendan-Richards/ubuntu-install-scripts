@@ -1,0 +1,7 @@
+
+---
+# xremap
+- name: Placeholder task
+  debug:
+    msg: "xremap installation and config"
+

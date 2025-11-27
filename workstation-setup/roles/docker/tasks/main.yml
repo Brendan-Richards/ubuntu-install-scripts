@@ -1,0 +1,7 @@
+
+---
+# Docker
+- name: Placeholder task
+  debug:
+    msg: "Docker tasks go here"
+

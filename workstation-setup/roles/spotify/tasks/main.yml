@@ -1,0 +1,7 @@
+
+---
+# Spotify
+- name: Placeholder task
+  debug:
+    msg: "Spotify installation"
+

@@ -1,0 +1,7 @@
+
+---
+# yabridge
+- name: Placeholder task
+  debug:
+    msg: "yabridge installation"
+

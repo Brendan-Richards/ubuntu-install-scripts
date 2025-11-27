@@ -1,0 +1,7 @@
+
+---
+# Rust
+- name: Placeholder task
+  debug:
+    msg: "Rust installation"
+

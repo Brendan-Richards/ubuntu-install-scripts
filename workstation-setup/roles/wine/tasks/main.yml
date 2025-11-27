@@ -1,0 +1,7 @@
+
+---
+# Wine + Winetricks
+- name: Placeholder task
+  debug:
+    msg: "Wine installation"
+

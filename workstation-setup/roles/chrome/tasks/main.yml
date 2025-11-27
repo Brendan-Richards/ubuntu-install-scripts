@@ -1,0 +1,7 @@
+
+---
+# Google Chrome
+- name: Placeholder task
+  debug:
+    msg: "Chrome tasks go here"
+

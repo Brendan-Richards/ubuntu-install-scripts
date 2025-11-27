@@ -1,0 +1,27 @@
+---
+- name: Workstation Setup
+  hosts: localhost
+  become: yes
+  vars:
+    user_home: "{{ ansible_env.HOME }}"
+    user: "{{ ansible_user }}"
+
+  roles:
+    - base-packages
+    - docker
+    - chrome
+    - uv
+    - vscode
+    - steam
+    - discord
+    - spotify
+    - keepassxc
+    - reaper
+    - multimedia
+    - rust
+    - xremap
+    - wine
+    - yabridge
+    - gp7
+    - jack
+    - gnome

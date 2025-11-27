@@ -1,0 +1,7 @@
+
+---
+# Steam
+- name: Placeholder task
+  debug:
+    msg: "Steam installation"
+

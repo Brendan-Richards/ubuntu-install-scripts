@@ -1,0 +1,7 @@
+
+---
+# Guitar Pro 7
+- name: Placeholder task
+  debug:
+    msg: "Guitar Pro 7 Wine install"
+

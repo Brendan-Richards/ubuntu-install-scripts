@@ -1,0 +1,7 @@
+
+---
+# Base packages
+- name: Update apt cache
+  apt:
+    update_cache: yes
+

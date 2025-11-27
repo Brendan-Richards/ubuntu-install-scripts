@@ -1,0 +1,7 @@
+
+---
+# Discord
+- name: Placeholder task
+  debug:
+    msg: "Discord installation"
+
