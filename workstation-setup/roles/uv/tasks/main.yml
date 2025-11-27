@@ -1,7 +1,6 @@
-
 ---
-# uv installation
-- name: Placeholder task
-  debug:
-    msg: "uv installation goes here"
-
+- name: Install uv
+  shell: curl -LsSf https://astral.sh/uv/install.sh | sh
+  args:
+    executable: /bin/bash
+  become: false

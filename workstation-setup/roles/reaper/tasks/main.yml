@@ -1,7 +1,14 @@
-
 ---
-# Reaper
-- name: Placeholder task
-  debug:
-    msg: "Reaper installation"
+- name: Download Reaper
+  get_url:
+    url: "https://www.reaper.fm/files/6.x/reaper670_linux_x86_64.tar.xz"
+    dest: "{{ user_home }}/reaper.tar.xz"
 
+- name: Extract Reaper
+  unarchive:
+    src: "{{ user_home }}/reaper.tar.xz"
+    dest: "{{ user_home }}"
+    remote_src: yes
+
+- name: Install Reaper
+  command: "{{ user_home }}/reaper_linux_x86_64/install-reaper.sh --install /opt --integrate-desktop --usr-local-bin-symlink"

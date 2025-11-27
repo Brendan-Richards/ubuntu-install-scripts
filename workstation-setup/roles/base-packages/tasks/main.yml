@@ -1,7 +1,40 @@
-
 ---
-# Base packages
 - name: Update apt cache
   apt:
     update_cache: yes
 
+- name: Upgrade system
+  apt:
+    upgrade: dist
+    yes: true
+
+- name: Install base packages
+  apt:
+    name:
+      - wget
+      - git
+      - curl
+      - gpg
+      - ca-certificates
+      - gnupg
+      - lsb-release
+      - build-essential
+      - libssl-dev
+      - libffi-dev
+      - libncurses5-dev
+      - zlib1g
+      - zlib1g-dev
+      - libreadline-dev
+      - libbz2-dev
+      - libsqlite3-dev
+      - make
+      - gcc
+      - liblzma-dev
+      - nano
+      - software-properties-common
+      - zenity
+      - libc++1
+      - libgconf-2-4
+      - htop
+      - unzip
+    state: present

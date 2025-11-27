@@ -1,7 +1,11 @@
-
 ---
-# JACK
-- name: Placeholder task
-  debug:
-    msg: "JACK installation/config"
+- name: Install qjackctl
+  apt:
+    name: qjackctl
+    state: present
 
+- name: Manual JACK configuration
+  pause:
+    prompt: |
+      Open qjackctl and configure audio settings.
+      Press Enter when complete.

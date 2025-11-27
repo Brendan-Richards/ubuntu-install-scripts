@@ -1,7 +1,9 @@
-
 ---
-# Google Chrome
-- name: Placeholder task
-  debug:
-    msg: "Chrome tasks go here"
+- name: Download Google Chrome
+  get_url:
+    url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    dest: "{{ user_home }}/google-chrome.deb"
 
+- name: Install Google Chrome
+  apt:
+    deb: "{{ user_home }}/google-chrome.deb"

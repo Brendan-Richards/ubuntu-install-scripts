@@ -1,7 +1,19 @@
-
 ---
-# yabridge
-- name: Placeholder task
-  debug:
-    msg: "yabridge installation"
+- name: Download yabridge
+  get_url:
+    url: https://github.com/robbert-vdh/yabridge/releases/download/5.1.1/yabridge-5.1.1.tar.gz
+    dest: "{{ user_home }}/yabridge.tar.gz"
 
+- name: Extract yabridge
+  unarchive:
+    src: "{{ user_home }}/yabridge.tar.gz"
+    dest: "{{ user_home }}/.local/share"
+    remote_src: yes
+
+- name: Add yabridge to PATH
+  lineinfile:
+    path: "{{ user_home }}/.bashrc"
+    line: "export PATH='$PATH:{{ user_home }}/.local/share/yabridge'"
+    create: yes
+    state: present
+  become: false

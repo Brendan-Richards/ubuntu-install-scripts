@@ -1,7 +1,9 @@
-
 ---
-# Guitar Pro 7
-- name: Placeholder task
-  debug:
-    msg: "Guitar Pro 7 Wine install"
+- name: Download Guitar Pro 7
+  get_url:
+    url: "https://alt-downloads.guitar-pro.com/gp7/stable/guitar-pro-7-setup.exe"
+    dest: "{{ user_home }}/gp7.exe"
 
+- name: Manual step: Install Guitar Pro via Wine
+  pause:
+    prompt: "Run: wine {{ user_home }}/gp7.exe then press Enter."

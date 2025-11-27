@@ -1,7 +1,7 @@
-
 ---
-# VLC + GIMP
-- name: Placeholder task
-  debug:
-    msg: "VLC and GIMP installation"
-
+- name: Install VLC and GIMP
+  apt:
+    name:
+      - vlc
+      - gimp
+    state: present

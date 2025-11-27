@@ -1,7 +1,10 @@
-
 ---
-# KeePassXC
-- name: Placeholder task
-  debug:
-    msg: "KeePassXC installation"
+- name: Add KeePassXC PPA
+  apt_repository:
+    repo: ppa:phoerious/keepassxc
+    state: present
 
+- name: Install KeePassXC
+  apt:
+    name: keepassxc
+    state: present

@@ -1,7 +1,6 @@
-
 ---
-# Steam
-- name: Placeholder task
-  debug:
-    msg: "Steam installation"
-
+- name: Install Steam
+  apt:
+    name: steam
+    state: present
+    update_cache: yes
